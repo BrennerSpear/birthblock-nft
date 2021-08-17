@@ -1,0 +1,17 @@
+node_modules/
+coverage/
+build/
+build_webpack/
+*.DS_Store
+.env*
+npm-debug.log
+yarn.lock
+package-lock.json
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+.history
+.ionide
