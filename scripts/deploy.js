@@ -1,36 +1,27 @@
 const hre = require("hardhat");
-const { ethers } = require("hardhat");
-
-const exampleMetadata = require("../IPFSMetadata/example.json");
+const {ethers, network } = hre;
+const { waitForEtherscan } = require("../helpers/deployHelpers");
+const [filePath] = process.argv.slice(2);
+const { contractName, contractArgs } = require(`../${filePath}`);
 
 async function main() {
 
-  const name = "my first NFT";
-  const symbol = "TESTNFT1";
-  const data = "https://ipfs.io/ipfs/QmTy8w65yBXgyfG2ZBg5TrfB2hPjrDQH3RCQFJGkARStJb";
-  const BSTokenAddress = "0x11fedccf960911b810dd82bd63dbb4332bf98858";
-  const minAmount = 100
+  await hre.run("compile");
   
-  const ERC721Factory = await ethers.getContractFactory("TemplateERC721");
-  const example = await ERC721Factory.deploy(name, symbol, data, BSTokenAddress, minAmount); // Instance of the contract 
+  const ERC721Factory = await ethers.getContractFactory(contractName);
+  const contractInstance = await ERC721Factory.deploy(...contractArgs); // Instance of the contract 
 
-  await example.deployed();
-  console.log("network", network);
-  console.log("Contract deployed to address:", example.address);
-  console.log(`https://${network.name}.etherscan.io/address/${example.address}#code`);
+  await contractInstance.deployed();
+
+  await waitForEtherscan(contractInstance.address, network.name)
 
   await hre.run("verify:verify", {
-    address: example.address,
-    constructorArguments: [
-      name,
-      symbol,
-      data,
-      BSTokenAddress,
-      minAmount,
-    ],
+    address: contractInstance.address,
+    constructorArguments: contractArgs,
   });
 
  }
+
  
  main()
    .then(() => process.exit(0))

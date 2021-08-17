@@ -11,6 +11,7 @@
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^2.1.4",
+    "axios": "^0.21.1",
     "ethers": "^5.4.1",
     "hardhat": "^2.4.3",
     "hardhat-contract-sizer": "^2.0.3"

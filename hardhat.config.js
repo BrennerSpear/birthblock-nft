@@ -17,7 +17,7 @@ module.exports = {
         runs: 1}
      }
     },
-    defaultNetwork: "ropsten",
+    defaultNetwork: "goerli",
     networks: {
       hardhat: {
         chainId: 1337
