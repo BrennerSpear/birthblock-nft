@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/brenner/repos/ERC721-template/contracts/ERC721.sol": {
-      "lastModificationDate": 1629216337783,
-      "contentHash": "3c6595666893eda6b696a301e2573661",
-      "sourceName": "contracts/ERC721.sol",
+    "/Users/brenner/repos/ERC721-template/contracts/TemplateERC721.sol": {
+      "lastModificationDate": 1629224266703,
+      "contentHash": "48c1d1a18a9730841eb2b1c7f22a0235",
+      "sourceName": "contracts/TemplateERC721.sol",
       "solcConfig": {
         "version": "0.8.6",
         "settings": {

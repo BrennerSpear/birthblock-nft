@@ -12,12 +12,11 @@ contract TemplateERC721 is ERC721URIStorage, Ownable {
   uint256 public minTokenRequirement;
   mapping(address => bool) public minted;
 
-  //, string memory _tokenURI
-  constructor(address _tokenGateAddress, uint256 _minTokenRequirement)
+  constructor(string memory _tokenURI, address _tokenGateAddress, uint256 _minTokenRequirement)
     ERC721("TestToken", "TT01")
   {
     tokenCounter = 0;
-    // internalTokenURI = _tokenURI;
+    internalTokenURI = _tokenURI;
     token = IERC20(_tokenGateAddress);
     minTokenRequirement = _minTokenRequirement;
   }
@@ -30,7 +29,7 @@ contract TemplateERC721 is ERC721URIStorage, Ownable {
     uint256 newTokenId = tokenCounter;
     tokenCounter++;
     _safeMint(msg.sender, newTokenId);
-    // _setTokenURI(newTokenId, internalTokenURI);
+    _setTokenURI(newTokenId, internalTokenURI);
   }
 
   function canMint() public view returns (bool) {

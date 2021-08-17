@@ -1,7 +1,6 @@
 const hre = require("hardhat");
 
-const { hexStripZeros } = require("ethers/lib/utils");
-const { ethers, network } = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
 
@@ -9,14 +8,15 @@ async function main() {
   const BSTokenAddress = "0x11fedccf960911b810dd82bd63dbb4332bf98858";
   const minAmount = 100
   
-  const ERC721Factory = await ethers.getContractFactory("ERC721");
-  const example = await ERC721Factory.deploy(BSTokenAddress, minAmount); // Instance of the contract 
+  const ERC721Factory = await ethers.getContractFactory("TemplateERC721");
+  const example = await ERC721Factory.deploy(data, BSTokenAddress, minAmount); // Instance of the contract 
 
   await example.deployed();
 
   await hre.run("verify:verify", {
     address: example.address,
     constructorArguments: [
+      data,
       BSTokenAddress,
       minAmount,
     ],
