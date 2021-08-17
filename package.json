@@ -1,0 +1,22 @@
+{
+  "name": "erc721-template",
+  "version": "0.1.0",
+  "description": "ERC721 template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brenner Spear",
+  "license": "MT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.4",
+    "ethers": "^5.4.1",
+    "hardhat": "^2.4.3",
+    "hardhat-contract-sizer": "^2.0.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.2.0",
+    "dotenv": "^10.0.0"
+  }
+}
