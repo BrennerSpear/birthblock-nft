@@ -12,8 +12,13 @@ contract TemplateERC721 is ERC721URIStorage, Ownable {
   uint256 public minTokenRequirement;
   mapping(address => bool) public minted;
 
-  constructor(string memory _tokenURI, address _tokenGateAddress, uint256 _minTokenRequirement)
-    ERC721("TestToken", "TT01")
+  constructor(
+    string memory _name,
+    string memory _symbol,
+    string memory _tokenURI,
+    address _tokenGateAddress,
+    uint256 _minTokenRequirement)
+    ERC721(_name, _symbol)
   {
     tokenCounter = 0;
     internalTokenURI = _tokenURI;

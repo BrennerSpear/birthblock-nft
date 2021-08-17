@@ -2,15 +2,15 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/brenner/repos/ERC721-template/contracts/TemplateERC721.sol": {
-      "lastModificationDate": 1629224266703,
-      "contentHash": "48c1d1a18a9730841eb2b1c7f22a0235",
+      "lastModificationDate": 1629226725134,
+      "contentHash": "4e4f709453683f7eb1debb799593f3d9",
       "sourceName": "contracts/TemplateERC721.sol",
       "solcConfig": {
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -47,8 +47,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -83,8 +83,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -117,8 +117,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -153,8 +153,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -195,8 +195,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -231,8 +231,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -265,8 +265,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -301,8 +301,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -335,8 +335,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -369,8 +369,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -403,8 +403,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -439,8 +439,8 @@
         "version": "0.8.6",
         "settings": {
           "optimizer": {
-            "enabled": false,
-            "runs": 200
+            "enabled": true,
+            "runs": 1
           },
           "outputSelection": {
             "*": {
