@@ -5,6 +5,7 @@ require('dotenv').config();
 require('hardhat-contract-sizer');
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-waffle");
 
 const { ROPSTEN_INFURA_URL, RINKEBY_INFURA_URL, GOERLI_INFURA_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
