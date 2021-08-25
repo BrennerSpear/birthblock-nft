@@ -3,7 +3,6 @@
 */
 require('dotenv').config();
 require('hardhat-contract-sizer');
-require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
 require("@nomiclabs/hardhat-waffle");
 
@@ -18,7 +17,7 @@ module.exports = {
         runs: 1}
      }
     },
-    defaultNetwork: "goerli",
+    defaultNetwork: "rinkeby",
     networks: {
       hardhat: {
         chainId: 1337

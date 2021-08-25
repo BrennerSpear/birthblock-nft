@@ -13,13 +13,15 @@
     "@nomiclabs/hardhat-etherscan": "^2.1.4",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "axios": "^0.21.1",
+    "bignumber": "^1.1.0",
     "chai": "^4.3.4",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.4.1",
-    "hardhat": "^2.4.3",
+    "hardhat": "^2.6.1",
     "hardhat-contract-sizer": "^2.0.3"
   },
   "dependencies": {
+    "@ensdomains/ens-contracts": "0.0.7",
     "@openzeppelin/contracts": "^4.2.0",
     "dotenv": "^10.0.0"
   }
