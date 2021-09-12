@@ -17,7 +17,7 @@ module.exports = {
         runs: 1}
      }
     },
-    defaultNetwork: "rinkeby",
+    // defaultNetwork: "rinkeby",
     networks: {
       hardhat: {
         chainId: 1337

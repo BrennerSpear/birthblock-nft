@@ -34,7 +34,7 @@ contract TemplateERC721 is ERC721URIStorage, Ownable {
   }
 
   function mintCollectible() public {
-    require(token.balanceOf(msg.sender) > minTokenRequirement, "Owner doesn't have enough of the token");
+    require(token.balanceOf(msg.sender) >= minTokenRequirement, "Owner doesn't have enough of the token");
     require(minted[msg.sender] == false, "NFT already minted");
 
     // bytes32 senderNode = reverse.node(msg.sender);

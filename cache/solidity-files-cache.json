@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/brenner/repos/ERC721-template/contracts/PlainERC20Token.sol": {
-      "lastModificationDate": 1629925953460,
-      "contentHash": "82d46dd288de01f10f423f732ce15171",
+      "lastModificationDate": 1630709679627,
+      "contentHash": "e04f8250cd7d7806668a16df4d41c951",
       "sourceName": "contracts/PlainERC20Token.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -34,7 +34,7 @@
         "^0.8.3"
       ],
       "artifacts": [
-        "PlainERC20Token"
+        "ERC20Template"
       ]
     },
     "/Users/brenner/repos/ERC721-template/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
@@ -216,8 +216,8 @@
       ]
     },
     "/Users/brenner/repos/ERC721-template/contracts/TemplateERC721.sol": {
-      "lastModificationDate": 1629843061051,
-      "contentHash": "69039d519b5e97044609f0c063fc7adf",
+      "lastModificationDate": 1630703764518,
+      "contentHash": "480c09c844eac2d5097609c777473341",
       "sourceName": "contracts/TemplateERC721.sol",
       "solcConfig": {
         "version": "0.8.6",
