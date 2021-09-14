@@ -1,0 +1,6 @@
+ROPSTEN_INFURA_URL = "https://ropsten.infura.io/v3/YOUR_KEY_HERE"
+RINKEBY_INFURA_URL = "https://rinkeby.infura.io/v3/YOUR_KEY_HERE"
+GOERLI_INFURA_URL = "https://goerli.infura.io/v3/YOUR_KEY_HERE"
+PUBLIC_KEY = "YOUR_KEY_HERE"
+PRIVATE_KEY = "YOUR_KEY_HERE"
+ETHERSCAN_API_KEY = "YOUR_KEY_HERE"

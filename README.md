@@ -5,6 +5,10 @@
 
 `npm install -g ts-node`
 
+`cp .example_env .env`
+
+Add your keys to your .env file
+
 ## Run tests
 `npx hardhat test`
 
