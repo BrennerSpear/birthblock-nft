@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es2018",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    // "rootDirs": ["./src", "./scripts", "./test"]
+    // "types": ["chai", "mocha", "node"]
+  },
+  "include": ["./src/**/*", "./scripts", "./test", "./test/**/*"],
+  "files": ["./hardhat.config.ts"]
+}

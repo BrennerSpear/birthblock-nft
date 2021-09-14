@@ -1,5 +1,6 @@
+import { assert } from "chai";
 
-async function shouldThrow(promise) {
+async function shouldThrow(promise: Promise<any>) {
   try {
       await promise;
      assert(true);
@@ -11,6 +12,6 @@ assert(false, "The contract did not throw.");
 
 }
 
-module.exports = {
+export {
   shouldThrow,
 };

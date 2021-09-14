@@ -1,12 +1,15 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
-const { utils: { parseEther, formatEther }} = ethers;
-const { shouldThrow } = require("./helpers/utils");
+import { expect } from "chai";
+import { ethers } from "hardhat";
+import { Signer, utils } from "ethers";
+const { formatEther } = utils;
 // const {BigNumber} = require("bignumber");
 
-const toEth = val => val * (10 ** 18);
+// const toEth = (val: number) => val * (10 ** 18);
 
 describe("Plain ERC20 Token contract", () => {
+  let owner: Signer;
+
+
   it("Deployment should assign the total supply of tokens to the owner", async () => {
     const [owner] = await ethers.getSigners();
 

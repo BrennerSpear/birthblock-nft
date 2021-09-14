@@ -1,12 +1,15 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
-const { utils: { parseEther }} = ethers;
-const { shouldThrow } = require("./helpers/utils");
+import { expect } from "chai";
+import { ethers } from "hardhat";
+import { Signer, utils } from "ethers";
+const { parseEther } = utils;
+import { shouldThrow } from "./helpers/utils";
 // const {BigNumber} = require("bignumber");
 
-const toEth = val => val * (10 ** 18);
+// const toEth = val => val * (10 ** 18);
 
 describe("ERC721 contract", () => {
+  let alice, bob, charlie: Signer;
+
   it("should allow ERC721 mint only if they have a specific ERC20 token", async () => {
     const [alice, bob, charlie] = await ethers.getSigners();
 
