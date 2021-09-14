@@ -2,13 +2,8 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 import { Signer, utils } from "ethers";
 const { formatEther } = utils;
-// const {BigNumber} = require("bignumber");
 
-// const toEth = (val: number) => val * (10 ** 18);
-
-describe("Plain ERC20 Token contract", () => {
-  let owner: Signer;
-
+describe("ERC20 Template contract", () => {
 
   it("Deployment should assign the total supply of tokens to the owner", async () => {
     const [owner] = await ethers.getSigners();
@@ -31,13 +26,9 @@ describe("Plain ERC20 Token contract", () => {
     const ownerBalance = await token.balanceOf(owner.address);
     const tokenTotalSupply = await token.totalSupply(); 
 
-    console.log('totaltokensupply', formatEther(tokenTotalSupply.toString()));
+    // console.log('totaltokensupply', formatEther(tokenTotalSupply.toString()));
+    // console.log("ownerBalance", formatEther(ownerBalance));
 
-    console.log("ownerBalance", formatEther(ownerBalance));
-    // console.log("hardhatToken.totalSupply()", await token.totalSupply());
-    
-    // console.log('bignumber', BigNumber(toEth(totalSupply)));  bignumber isn't a function..?
-    // Number(formatEther(totalSupply))
     expect(Number(formatEther(tokenTotalSupply.toString()))).to.equal(totalSupply);
     expect(Number(formatEther(tokenTotalSupply.toString()))).to.equal(Number(formatEther(ownerBalance.toString())));
   });
