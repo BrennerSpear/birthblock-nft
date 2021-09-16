@@ -2,6 +2,7 @@ node_modules/
 coverage/
 build/
 build_webpack/
+test/SVGs/
 *.DS_Store
 .env*
 npm-debug.log

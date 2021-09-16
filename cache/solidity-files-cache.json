@@ -36,8 +36,8 @@
       ]
     },
     "/Users/brenner/repos/svg-star-layer/contracts/SVGStar.sol": {
-      "lastModificationDate": 1631815898359,
-      "contentHash": "badc50c077211ca9381d882e1b18a28f",
+      "lastModificationDate": 1631833378331,
+      "contentHash": "9068f0bb9a251e1b541634074ec52b1a",
       "sourceName": "contracts/SVGStar.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -62,6 +62,7 @@
         }
       },
       "imports": [
+        "./utils.sol",
         "./base64.sol",
         "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
@@ -498,6 +499,40 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "/Users/brenner/repos/svg-star-layer/contracts/utils.sol": {
+      "lastModificationDate": 1631833280956,
+      "contentHash": "a7f2fa2a8cc4ac6788dfc458f76fe1c6",
+      "sourceName": "contracts/utils.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.5"
+      ],
+      "artifacts": [
+        "Utils"
       ]
     }
   }

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.5;
 
+import "./utils.sol";
 import "./base64.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -39,39 +40,19 @@ contract SVGStar is ERC721URIStorage, Ownable {
 
     parts[1] = tokenName;
 
-    parts[2] = toString(tokenId);
+    parts[2] = Utils.toString(tokenId);
 
     parts[3] = '</text></svg>';
     
     string memory output = string(abi.encodePacked(parts[0], parts[1], parts[2], parts[3]));
 
-    string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "svg star ', toString(tokenId), '", "description": "just a star!", "image": "data:image/svg+xml;base64,', Base64.encode(bytes(output)), '"}'))));
+    string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "svg star ', Utils.toString(tokenId), '", "description": "just a star!", "image": "data:image/svg+xml;base64,', Base64.encode(bytes(output)), '"}'))));
 
     output = string(abi.encodePacked('data:application/json;base64,', json));
 
     return output;
   }
 
-  function toString(uint256 value) internal pure returns (string memory) {
-  // Inspired by OraclizeAPI's implementation - MIT license
-  // https://github.com/oraclize/ethereum-api/blob/b42146b063c7d6ee1358846c198246239e9360e8/oraclizeAPI_0.4.25.sol
 
-      if (value == 0) {
-          return "0";
-      }
-      uint256 temp = value;
-      uint256 digits;
-      while (temp != 0) {
-          digits++;
-          temp /= 10;
-      }
-      bytes memory buffer = new bytes(digits);
-      while (value != 0) {
-          digits -= 1;
-          buffer[digits] = bytes1(uint8(48 + uint256(value % 10)));
-          value /= 10;
-      }
-      return string(buffer);
-  }
 
 }
