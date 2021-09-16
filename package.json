@@ -1,10 +1,11 @@
 {
-  "name": "erc721-template",
+  "name": "svg-star-layer",
   "version": "0.1.0",
-  "description": "ERC721 template",
+  "description": "svg nft templates",
   "main": "index.js",
   "scripts": {
-    "test": "npx hardhat test"
+    "test": "npx hardhat test",
+    "deploy": "HARDHAT_NETWORK=rinkeby ts-node scripts/deploy.ts"
   },
   "author": "Brenner Spear",
   "license": "MT",
