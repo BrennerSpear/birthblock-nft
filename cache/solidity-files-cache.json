@@ -35,46 +35,6 @@
         "Base64"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/contracts/SVGStar.sol": {
-      "lastModificationDate": 1631833378331,
-      "contentHash": "9068f0bb9a251e1b541634074ec52b1a",
-      "sourceName": "contracts/SVGStar.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 1
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./utils.sol",
-        "./base64.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.5"
-      ],
-      "artifacts": [
-        "SVGStar"
-      ]
-    },
     "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
       "lastModificationDate": 1631723672188,
       "contentHash": "94da923c22e9773af388607307182c80",
@@ -533,6 +493,46 @@
       ],
       "artifacts": [
         "Utils"
+      ]
+    },
+    "/Users/brenner/repos/svg-star-layer/contracts/SVGTemplate.sol": {
+      "lastModificationDate": 1631900299763,
+      "contentHash": "5b11cb31f8565aa8e5f10d70b474d8bd",
+      "sourceName": "contracts/SVGTemplate.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./utils.sol",
+        "./base64.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.5"
+      ],
+      "artifacts": [
+        "SVGTemplate"
       ]
     }
   }
