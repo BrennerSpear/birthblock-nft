@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/brenner/repos/svg-star-layer/contracts/base64.sol": {
+    "/Users/brenner/repos/SVG-minter/contracts/base64.sol": {
       "lastModificationDate": 1631736337401,
       "contentHash": "0a07710e4916ce2ce07a9ff209fbbb83",
       "sourceName": "contracts/base64.sol",
@@ -35,7 +35,82 @@
         "Base64"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
+    "/Users/brenner/repos/SVG-minter/contracts/SVGTemplate.sol": {
+      "lastModificationDate": 1632348950712,
+      "contentHash": "75b90f4c300dd6da670e684596385274",
+      "sourceName": "contracts/SVGTemplate.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./utils.sol",
+        "./base64.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.5"
+      ],
+      "artifacts": [
+        "SVGMinter"
+      ]
+    },
+    "/Users/brenner/repos/SVG-minter/contracts/utils.sol": {
+      "lastModificationDate": 1631833280956,
+      "contentHash": "a7f2fa2a8cc4ac6788dfc458f76fe1c6",
+      "sourceName": "contracts/utils.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.5"
+      ],
+      "artifacts": [
+        "Utils"
+      ]
+    },
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
       "lastModificationDate": 1631723672188,
       "contentHash": "94da923c22e9773af388607307182c80",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
@@ -71,7 +146,7 @@
         "ERC721URIStorage"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
       "lastModificationDate": 1631723672344,
       "contentHash": "0eac3e1a83ee62326ca007811285b274",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
@@ -105,7 +180,7 @@
         "IERC20"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
       "lastModificationDate": 1631723672432,
       "contentHash": "4fe56b59ced59d87df6b796758f62895",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
@@ -141,7 +216,41 @@
         "Ownable"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1631723674013,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
       "lastModificationDate": 1631723672123,
       "contentHash": "a4f6dccf3f15b6844e357f737a572388",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
@@ -183,7 +292,7 @@
         "ERC721"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
       "lastModificationDate": 1631723672365,
       "contentHash": "53919d6975f2c0f3dffee5e3a1064116",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
@@ -219,7 +328,7 @@
         "IERC721"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
       "lastModificationDate": 1631723672383,
       "contentHash": "9a367cecca6fed80a3e975b7e6b3bd5c",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
@@ -253,7 +362,7 @@
         "IERC721Receiver"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
       "lastModificationDate": 1631723672379,
       "contentHash": "8aa69ca8424167555baaaa9f607801db",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
@@ -289,7 +398,7 @@
         "IERC721Metadata"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/utils/Address.sol": {
       "lastModificationDate": 1631723671527,
       "contentHash": "c5f6c4e4df069c789e7d84b4c3011913",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
@@ -323,7 +432,7 @@
         "Address"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/utils/Context.sol": {
       "lastModificationDate": 1631723671586,
       "contentHash": "851485d5b925529b1a2f34a0be077891",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
@@ -357,7 +466,7 @@
         "Context"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
       "lastModificationDate": 1631723672521,
       "contentHash": "62142442bed149f965c5ed971fae4182",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
@@ -391,7 +500,7 @@
         "Strings"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
       "lastModificationDate": 1631723671892,
       "contentHash": "a9a5319dff9088c6ffe757ea1c2a6729",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
@@ -427,7 +536,7 @@
         "ERC165"
       ]
     },
-    "/Users/brenner/repos/svg-star-layer/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+    "/Users/brenner/repos/SVG-minter/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
       "lastModificationDate": 1631723672325,
       "contentHash": "9a04322bb8f6b8f2767d8358d1d2537b",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
@@ -459,115 +568,6 @@
       ],
       "artifacts": [
         "IERC165"
-      ]
-    },
-    "/Users/brenner/repos/svg-star-layer/contracts/utils.sol": {
-      "lastModificationDate": 1631833280956,
-      "contentHash": "a7f2fa2a8cc4ac6788dfc458f76fe1c6",
-      "sourceName": "contracts/utils.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 1
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.5"
-      ],
-      "artifacts": [
-        "Utils"
-      ]
-    },
-    "/Users/brenner/repos/svg-star-layer/contracts/SVGTemplate.sol": {
-      "lastModificationDate": 1632338796768,
-      "contentHash": "84b960c0239ed672b287fefc1d949cd6",
-      "sourceName": "contracts/SVGTemplate.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 1
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./utils.sol",
-        "./base64.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.5"
-      ],
-      "artifacts": [
-        "SVGTemplate"
-      ]
-    },
-    "/Users/brenner/repos/svg-star-layer/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1631723674013,
-      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
-      "sourceName": "hardhat/console.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 1
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22 <0.9.0"
-      ],
-      "artifacts": [
-        "console"
       ]
     }
   }
