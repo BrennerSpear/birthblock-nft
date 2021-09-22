@@ -23,6 +23,7 @@ async function main() {
   const contractInstance = await ERC721Factory.deploy(...contractArgs); // Instance of the contract 
 
   console.log(`deploying contract: ${contractInstance.address} to the ${network.name} network...`);
+  // console.log(`using gas price of ${Number(network)/(10**9)} gwei`);
   await contractInstance.deployed();
   console.log('contract deployed');
 

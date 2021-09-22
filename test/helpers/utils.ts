@@ -12,6 +12,12 @@ assert(false, "The contract did not throw.");
 
 }
 
+  interface MetaData {
+    name: string;
+    description: string;
+    image: string;
+  }
+
 const decodeBase64TokenURI = (str: string): string => {
   let [dataType, encodedString] = str.split(',');
   let buff = Buffer.from(encodedString, 'base64');
