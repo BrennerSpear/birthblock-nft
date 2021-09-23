@@ -13,7 +13,6 @@ dotenv.config();
 const { ROPSTEN_INFURA_URL, RINKEBY_INFURA_URL, GOERLI_INFURA_URL, PRIVATE_KEY, ETHERSCAN_API_KEY, COINMARKETCAP_API_KEY } = process.env;
 
 const gas = 100;
-
 const gwei = 10 ** 9;
 
 export default {

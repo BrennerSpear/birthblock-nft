@@ -35,47 +35,6 @@
         "Base64"
       ]
     },
-    "/Users/brenner/repos/SVG-minter/contracts/SVGTemplate.sol": {
-      "lastModificationDate": 1632348950712,
-      "contentHash": "75b90f4c300dd6da670e684596385274",
-      "sourceName": "contracts/SVGTemplate.sol",
-      "solcConfig": {
-        "version": "0.8.6",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 1
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./utils.sol",
-        "./base64.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.5"
-      ],
-      "artifacts": [
-        "SVGMinter"
-      ]
-    },
     "/Users/brenner/repos/SVG-minter/contracts/utils.sol": {
       "lastModificationDate": 1631833280956,
       "contentHash": "a7f2fa2a8cc4ac6788dfc458f76fe1c6",
@@ -568,6 +527,46 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "/Users/brenner/repos/SVG-minter/contracts/SVGMinter.sol": {
+      "lastModificationDate": 1632410073736,
+      "contentHash": "1656e4f756ec99ba4461928b1709b894",
+      "sourceName": "contracts/SVGMinter.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./utils.sol",
+        "./base64.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.5"
+      ],
+      "artifacts": [
+        "SVGMinter"
       ]
     }
   }
