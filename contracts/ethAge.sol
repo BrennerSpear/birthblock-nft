@@ -9,13 +9,13 @@ import 'hardhat/console.sol';
 
 contract ethAge is ERC721, Ownable {
     using Counters for Counters.Counter;
-    bool public mintActive = false;
     Counters.Counter private _tokenIds;
     string public metadataFolderURI;
-    uint256 public freeMints;
+    mapping(address => uint256) public minted;
     uint256 public constant price = 0.01 ether;
-    mapping(address => uint8) public minted;
     uint256 public reverseBirthday;
+    uint256 public mintActive = 0;
+    uint256 public freeMints;
 
     constructor(
         string memory _name,
@@ -34,7 +34,7 @@ contract ethAge is ERC721, Ownable {
     }
 
     function mint() public payable {
-        require(mintActive == true, 'mint is not active rn..');
+        require(mintActive == 1, 'mint is not active rn..');
         require(tx.origin == msg.sender, "dont get Seven'd");
         require(minted[msg.sender] < 1, 'only 1 mint per wallet address');
 
@@ -55,7 +55,7 @@ contract ethAge is ERC721, Ownable {
         return (freeMints > _tokenIds.current());
     }
 
-    function setMintActive(bool _mintActive) public onlyOwner {
+    function setMintActive(uint256 _mintActive) public onlyOwner {
         mintActive = _mintActive;
     }
 

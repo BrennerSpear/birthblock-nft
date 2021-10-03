@@ -3,7 +3,7 @@ import { BigNumber } from 'ethers';
 import { parseEther, formatEther } from 'ethers/lib/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const shouldThrow = async (promise: Promise<any>): Promise<any> => {
+export const shouldThrow = async (promise: Promise<any>): Promise<any> => {
     try {
         await promise;
         assert(true);
@@ -13,7 +13,13 @@ const shouldThrow = async (promise: Promise<any>): Promise<any> => {
     assert(false, 'The contract did not throw.');
 };
 
-const providerConfig = [
+export const payment = (val: number): Record<string, BigNumber> => ({
+    value: parseEther(val.toString()),
+});
+
+export const bigNtoN = (bigNumber: BigNumber): number => Number(formatEther(bigNumber));
+
+export const providerConfig = [
     'homestead',
     {
         etherscan: process.env.ETHERSCAN_API_KEY,
@@ -23,11 +29,3 @@ const providerConfig = [
         },
     },
 ];
-
-export const payment = (val: number): Record<string, BigNumber> => ({
-    value: parseEther(val.toString()),
-});
-
-export const bigNtoN = (bigNumber: BigNumber): number => Number(formatEther(bigNumber));
-
-export { shouldThrow, providerConfig };

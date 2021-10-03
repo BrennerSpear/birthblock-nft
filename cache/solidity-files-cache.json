@@ -570,8 +570,8 @@
       ]
     },
     "/Users/brenner/repos/eth-age-nft/contracts/ethAge.sol": {
-      "lastModificationDate": 1633286202175,
-      "contentHash": "625114bd168290950ee06b3fc2b86196",
+      "lastModificationDate": 1633287773686,
+      "contentHash": "4553696ae02fdb2f8bc680ae2bfe9403",
       "sourceName": "contracts/ethAge.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -610,8 +610,8 @@
       ]
     },
     "/Users/brenner/repos/eth-age-nft/contracts/utils.sol": {
-      "lastModificationDate": 1633200951770,
-      "contentHash": "a7f2fa2a8cc4ac6788dfc458f76fe1c6",
+      "lastModificationDate": 1633286878064,
+      "contentHash": "57619322781caae649b2783395c52c35",
       "sourceName": "contracts/utils.sol",
       "solcConfig": {
         "version": "0.8.6",
