@@ -1,95 +1,103 @@
 import { expect, assert } from 'chai';
 import { ethers } from 'hardhat';
 import { formatEther } from 'ethers/lib/utils';
-import { providerConfig, payment } from './helpers/utils';
+import { payment, shouldThrow, bigNtoN } from './helpers/utils';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { contractName, contractArgs } from '../NFTs/ethAge';
+import { contractName, contractArgs } from '../nfts/ethAge';
 import { Contract, ContractFactory } from '@ethersproject/contracts';
 
 describe('ethAge contract', () => {
+    let owner: SignerWithAddress,
+        bob: SignerWithAddress,
+        charlie: SignerWithAddress,
+        danny: SignerWithAddress;
+    let nftFactory: ContractFactory, nft: Contract;
+
+    const mintCost = 0.01;
+    let ownerStartingBalance: number;
+    const metadataFolderURL = contractArgs[2];
+    // change 144 free mints to 2
+    contractArgs[3] = 2;
+
+    // const provider = ethers.getDefaultProvider(undefined, providerConfig[1]);
     describe('happy path', async () => {
-        let owner: SignerWithAddress,
-            bob: SignerWithAddress,
-            charlie: SignerWithAddress,
-            danny: SignerWithAddress;
-        let NFTFactory: ContractFactory, NFT: Contract;
-
-        const mintCost = 0.01;
-        let ownerStartingBalance: number;
-        const metadataFolderURL = contractArgs[2];
-
-        // const provider = ethers.getDefaultProvider(undefined, providerConfig[1]);
-
         before(async () => {
             [owner, bob, charlie, danny] = await ethers.getSigners();
-            ownerStartingBalance = Number(formatEther(await owner.getBalance()));
+            ownerStartingBalance = bigNtoN(await owner.getBalance());
 
-            // change 144 free mints to 2
-            contractArgs[3] = 2;
-
-            NFTFactory = await ethers.getContractFactory(contractName);
-            NFT = await NFTFactory.deploy(...contractArgs);
-            await NFT.deployed();
+            nftFactory = await ethers.getContractFactory(contractName);
+            nft = await nftFactory.deploy(...contractArgs);
+            await nft.deployed();
         });
         it('mint once minting has been activated', async () => {
-            await NFT.setMintActive(true);
+            await nft.setMintActive(true);
 
-            assert(await NFT.mintActive(), 'mint is supposed to be active');
+            assert(await nft.mintActive(), 'mint is supposed to be active');
         });
         it('isMintFree returns true while its still free', async () => {
-            assert(await NFT.isMintFree(), 'mint should be free still');
+            assert(await nft.isMintFree(), 'mint should be free still');
         });
         it('the first 2 mint(s) for free', async () => {
-            await NFT.connect(owner).mint();
-            await NFT.connect(bob).mint();
+            await nft.connect(owner).mint();
+            await nft.connect(bob).mint();
         });
-        it('paid mints with 0.01 eth after the freeMint limit is hit', async () => {});
+        it('paid mints with 0.01 eth after the freeMint limit is hit', async () => {
+            await nft.connect(charlie).mint(payment(mintCost));
+        });
         it('isMintFree returns false when its no longer free', async () => {
-            assert(!(await NFT.isMintFree()), 'mint should no longer be free');
+            assert(!(await nft.isMintFree()), 'mint should no longer be free');
         });
         it('you to overpay for a mint', async () => {
-            // console.log('contract Balance:', formatEther(await provider.getBalance(NFT.address)));
-            await NFT.connect(charlie).mint(payment(mintCost));
-            await NFT.connect(danny).mint(payment(3));
-            // console.log('contract Balance:', formatEther(await provider.getBalance(NFT.address)));
+            // console.log('contract Balance:', formatEther(await provider.getBalance(nft.address)));
+            await nft.connect(danny).mint(payment(3));
+            // console.log('contract Balance:', formatEther(await provider.getBalance(nft.address)));
         });
         it('tokenURI returns base+tokenId', async () => {
-            const tokenURIData = await NFT.tokenURI(1);
+            const tokenURIData = await nft.tokenURI(1);
             expect(tokenURIData).to.equal(metadataFolderURL + '1');
         });
-        it('owner can withdraw', async () => {
-            await NFT.connect(owner).withdraw();
-            const ownerEndingBalance = Number(formatEther(await owner.getBalance()));
+        it('owner can withdraw to empty contract balance', async () => {
+            // contract balance before
+            expect(bigNtoN(await nft.getBalance())).to.be.equal(3.01);
+
+            await nft.connect(owner).withdraw();
+            const ownerEndingBalance = bigNtoN(await owner.getBalance());
             expect(ownerEndingBalance).to.be.above(ownerStartingBalance);
+
+            expect(bigNtoN(await nft.getBalance())).to.be.equal(0);
         });
     });
-    describe('exception paths', async () => {
-        it('prevent mint before mint has been activated', async () => {
-            assert(true);
+    describe('exception paths, prevent:', async () => {
+        before(async () => {
+            [owner, bob, charlie, danny] = await ethers.getSigners();
+
+            nftFactory = await ethers.getContractFactory(contractName);
+            nft = await nftFactory.deploy(...contractArgs);
+            await nft.deployed();
         });
-        it('prevent non-owner from activating mint', async () => {
-            assert(true);
+        it('mint before mint has been activated', async () => {
+            await shouldThrow(nft.connect(owner).mint());
         });
-        it('only 1 mint per address', async () => {
-            assert(true);
+        it('non-owner from activating mint', async () => {
+            await shouldThrow(nft.connect(bob).setMintActive(true));
+            await nft.setMintActive(true);
         });
-        it('', async () => {
-            assert(true);
-        });
-        it('mint more than 1', async () => {
-            assert(true);
+        it('mint more than 1 per address', async () => {
+            await nft.mint();
+            await shouldThrow(nft.mint());
+            await nft.connect(bob).mint();
         });
         it('mint a free one after the freeMint limit has been hit', async () => {
-            assert(true);
+            await shouldThrow(nft.connect(charlie).mint());
         });
         it('mint for less than the fee', async () => {
-            assert(true);
+            await shouldThrow(nft.connect(charlie).mint(payment(mintCost - 0.00001)));
         });
-        it('mint before the mint is active', async () => {
-            assert(true);
+        it('a non-owner from withdrawing', async () => {
+            await shouldThrow(nft.connect(charlie).withdraw());
         });
-        it('prevent a non-owner from withdrawing', async () => {
-            assert(true);
+        it('getting a non-existent token URI', async () => {
+            await shouldThrow(nft.tokenURI(9));
         });
     });
 });

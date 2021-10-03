@@ -63,4 +63,8 @@ contract ethAge is ERC721, Ownable {
         uint256 balance = address(this).balance;
         payable(msg.sender).transfer(balance);
     }
+
+    function getBalance() external view returns (uint256) {
+        return address(this).balance;
+    }
 }
