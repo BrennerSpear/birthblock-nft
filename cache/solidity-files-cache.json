@@ -570,8 +570,8 @@
       ]
     },
     "/Users/brenner/repos/eth-age-nft/contracts/ethAge.sol": {
-      "lastModificationDate": 1633223792316,
-      "contentHash": "12c7223ccf5670e0c7635fcd4248d235",
+      "lastModificationDate": 1633283607694,
+      "contentHash": "fa37a1e10b9ae8da8324cabe96e9f25c",
       "sourceName": "contracts/ethAge.sol",
       "solcConfig": {
         "version": "0.8.6",
@@ -599,7 +599,8 @@
         "./utils.sol",
         "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Counters.sol"
+        "@openzeppelin/contracts/utils/Counters.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.5"
@@ -1066,6 +1067,40 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "/Users/brenner/repos/eth-age-nft/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1633207884594,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
       ]
     }
   }

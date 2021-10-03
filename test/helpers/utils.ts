@@ -1,40 +1,30 @@
-import { assert } from "chai";
+import { assert } from 'chai';
+import { BigNumber } from 'ethers';
+import { parseEther } from 'ethers/lib/utils';
 
 async function shouldThrow(promise: Promise<any>) {
-  try {
-      await promise;
-     assert(true);
-  }
-  catch (err) {
-      return;
-  }
-assert(false, "The contract did not throw.");
-
+    try {
+        await promise;
+        assert(true);
+    } catch (err) {
+        return;
+    }
+    assert(false, 'The contract did not throw.');
 }
 
-  interface MetaData {
-    name: string;
-    description: string;
-    image: string;
-  }
+const providerConfig = [
+    'homestead',
+    {
+        etherscan: process.env.ETHERSCAN_API_KEY,
+        infura: {
+            projectId: process.env.INFURA_PROJECT_ID,
+            projectSecret: process.env.INFURA_PROJECT_SECRET,
+        },
+    },
+];
 
-const decodeBase64TokenURI = (str: string): string => {
-  let [dataType, encodedString] = str.split(',');
-  let buff = Buffer.from(encodedString, 'base64');
-  let decodedString = buff.toString('ascii');
-  return decodedString;
-}
+export const payment = (val: number): Record<string, BigNumber> => ({
+    value: parseEther(val.toString()),
+});
 
-const tokenURIToImageSVG = (str: string): string => {
-  const tokenURIString = decodeBase64TokenURI(str);
-  const tokenURIObj = JSON.parse(tokenURIString);
-  const imageData = tokenURIObj.image;
-  const imageString = decodeBase64TokenURI(imageData);
-  return imageString;
-}
-
-export {
-  shouldThrow,
-  decodeBase64TokenURI,
-  tokenURIToImageSVG,
-};
+export { shouldThrow, providerConfig };

@@ -2,7 +2,7 @@ const contractName = 'ethAge'; //links to the file name in contracts/<filename.s
 
 const nftName = 'ETH age';
 const symbol = 'AGE';
-const metadataFolderURL = 'ipfs://asdf';
+const metadataFolderURL = 'ipfs://1a2f/';
 const freeMints = 144;
 
 const contractArgs = [nftName, symbol, metadataFolderURL, freeMints];

@@ -5,6 +5,7 @@ import './utils.sol';
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
+import 'hardhat/console.sol';
 
 contract ethAge is ERC721, Ownable {
     using Counters for Counters.Counter;
@@ -14,6 +15,7 @@ contract ethAge is ERC721, Ownable {
     uint256 public freeMints;
     uint256 public constant price = 0.01 ether;
     mapping(address => uint8) public minted;
+    uint256 public reverseBirthday;
 
     constructor(
         string memory _name,
@@ -23,11 +25,12 @@ contract ethAge is ERC721, Ownable {
     ) ERC721(_name, _symbol) {
         metadataFolderURI = _metadataFolderURI;
         freeMints = _freeMints;
+        reverseBirthday = block.number;
     }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), 'ERC721URIStorage: URI query for nonexistent token');
-        return string(abi.encodePacked(metadataFolderURI, tokenId));
+        return string(abi.encodePacked(metadataFolderURI, Utils.toString(tokenId)));
     }
 
     function mint() public payable {
@@ -36,7 +39,7 @@ contract ethAge is ERC721, Ownable {
         require(minted[msg.sender] < 1, 'only 1 mint per wallet address');
 
         // First 144 are free
-        if (freeMints < _tokenIds.current()) {
+        if (freeMints <= _tokenIds.current()) {
             require(msg.value >= price, 'minting is no longer free, it costs 0.01 eth');
         }
 
