@@ -1,7 +1,7 @@
 {
-    "name": "svg-star-layer",
+    "name": "birthblock-nft",
     "version": "0.1.0",
-    "description": "svg nft templates",
+    "description": "Solidity for Birthblock",
     "main": "index.js",
     "scripts": {
         "test": "npx hardhat test",
