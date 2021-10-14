@@ -1,4 +1,4 @@
-# ERC721-template
+# eth Age NFT
 
 ## setup
 `npm install`
@@ -10,11 +10,7 @@
 Add your keys to your .env file
 
 ## Run tests
-`npx hardhat test`
+`npm run test`
 
-## Deploy a contract
-`HARDHAT_NETWORK=rinkeby ts-node scripts/deploy.ts NFTs/myFirstNFT.ts`
-
-You may set whichever network you'd like - it will default to `hardhat` which doesn't work for deploying
-
-The file after the deploy script (`NFTs/myFirstNFT.ts` in the example) is used as the parameters for the contract
+## Deploy to rinkeby
+`npm run deploy ethAge`
