@@ -15,16 +15,21 @@ contract birthblock is ERC721, Ownable {
     uint256 public reverseBirthday;
     uint256 public mintActive = 0;
     uint256 public freeMints;
+    uint256 public mintsPerAddress;
+
+    event Mint(address indexed _minter, uint256 _token_id);
 
     constructor(
         string memory _name,
         string memory _symbol,
         string memory _metadataFolderURI,
-        uint256 _freeMints
+        uint256 _freeMints,
+        uint256 _mintsPerAddress
     ) ERC721(_name, _symbol) {
         metadataFolderURI = _metadataFolderURI;
         freeMints = _freeMints;
         reverseBirthday = block.number;
+        mintsPerAddress = _mintsPerAddress;
     }
 
     function setMetadataFolderURI(string memory folderUrl) public onlyOwner {
@@ -39,7 +44,7 @@ contract birthblock is ERC721, Ownable {
     function mint() public payable {
         require(mintActive == 1, 'mint is not active rn..');
         require(tx.origin == msg.sender, "dont get Seven'd");
-        require(minted[msg.sender] < 1, 'only 1 mint per wallet address');
+        require(minted[msg.sender] < mintsPerAddress, 'only 1 mint per wallet address');
 
         // First 144 are free
         if (freeMints <= _tokenIds.current()) {
@@ -48,10 +53,11 @@ contract birthblock is ERC721, Ownable {
 
         _tokenIds.increment();
 
-        minted[msg.sender] = 1;
+        minted[msg.sender]++;
 
         uint256 tokenId = _tokenIds.current();
         _safeMint(msg.sender, tokenId);
+        emit Mint(msg.sender, tokenId);
     }
 
     function isMintFree() external view returns (bool) {

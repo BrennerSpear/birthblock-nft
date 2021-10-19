@@ -1,6 +1,6 @@
 import { expect, assert } from 'chai';
 import { ethers } from 'hardhat';
-import { formatEther, parseEther } from 'ethers/lib/utils';
+import { parseEther, formatUnits } from 'ethers/lib/utils';
 import { payment, shouldThrow, bigNtoN } from './helpers/utils';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { contractName, contractArgs } from '../nfts/birthblock';
@@ -18,6 +18,7 @@ describe('birthblock contract', () => {
     const metadataFolderURL = contractArgs[2];
     // change 144 free mints to 2
     contractArgs[3] = 2;
+    contractArgs[4] = 1;
 
     // const provider = ethers.getDefaultProvider(undefined, providerConfig[1]);
     describe('happy path', async () => {
@@ -38,9 +39,15 @@ describe('birthblock contract', () => {
         it('isMintFree returns true while its still free', async () => {
             assert(await nft.isMintFree(), 'mint should be free still');
         });
-        it('the first 2 mint(s) for free', async () => {
+        it('the first 2 mint(s) for free and they emit the Mint event', async () => {
             await nft.connect(owner).mint();
-            await nft.connect(bob).mint();
+
+            const txn = await nft.connect(bob).mint();
+
+            const reciept = await txn.wait();
+            const mintEvent = reciept.events?.filter((e: { event: string }) => e.event == 'Mint');
+            expect(mintEvent[0].args[0]).to.equal(bob.address); // minter
+            expect(Number(formatUnits(mintEvent[0].args[1], 'wei'))).to.equal(2); // token Id
         });
         it('paid mints with 0.01 eth after the freeMint limit is hit', async () => {
             await nft.connect(charlie).mint(payment(mintCost));

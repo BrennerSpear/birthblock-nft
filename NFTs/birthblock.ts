@@ -2,8 +2,9 @@ const contractName = 'birthblock'; //links to the file name in contracts/<filena
 
 const nftName = 'Birthblock';
 const symbol = 'BBLOCK';
-const metadataFolderURL = 'ipfs://1a2f/';
-const freeMints = 144;
+const metadataFolderURL = 'https://www.dev.birthblock.art/api/v1/metadata/';
+const freeMints = 2;
+const mintsPerAddress = 1000;
 
-const contractArgs = [nftName, symbol, metadataFolderURL, freeMints];
+const contractArgs = [nftName, symbol, metadataFolderURL, freeMints, mintsPerAddress];
 export { contractName, contractArgs };
