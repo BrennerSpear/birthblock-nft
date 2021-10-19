@@ -17,7 +17,7 @@ contract birthblock is ERC721, Ownable {
     uint256 public freeMints;
     uint256 public mintsPerAddress;
 
-    event Mint(address indexed _minter, uint256 _token_id);
+    event Mint(address indexed _minter, uint256 indexed _token_id);
 
     constructor(
         string memory _name,
