@@ -570,8 +570,8 @@
       ]
     },
     "/Users/brenner/repos/birthblock-nft/contracts/birthblock.sol": {
-      "lastModificationDate": 1634673760152,
-      "contentHash": "86ff0784579f808ddb3e946528bbe0f2",
+      "lastModificationDate": 1634766739289,
+      "contentHash": "0cc2c463c6dede82f20fa0a603c21208",
       "sourceName": "contracts/birthblock.sol",
       "solcConfig": {
         "version": "0.8.6",

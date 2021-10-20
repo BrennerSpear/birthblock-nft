@@ -16,6 +16,7 @@ contract birthblock is ERC721, Ownable {
     uint256 public mintActive = 0;
     uint256 public freeMints;
     uint256 public mintsPerAddress;
+    string public openseaContractMetadataURL;
 
     event Mint(address indexed _minter, uint256 indexed _token_id);
 
@@ -24,12 +25,14 @@ contract birthblock is ERC721, Ownable {
         string memory _symbol,
         string memory _metadataFolderURI,
         uint256 _freeMints,
-        uint256 _mintsPerAddress
+        uint256 _mintsPerAddress,
+        string memory _openseaContractMetadataURL
     ) ERC721(_name, _symbol) {
         metadataFolderURI = _metadataFolderURI;
         freeMints = _freeMints;
         reverseBirthday = block.number;
         mintsPerAddress = _mintsPerAddress;
+        openseaContractMetadataURL = _openseaContractMetadataURL;
     }
 
     function setMetadataFolderURI(string memory folderUrl) public onlyOwner {
@@ -39,6 +42,10 @@ contract birthblock is ERC721, Ownable {
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), 'ERC721URIStorage: URI query for nonexistent token');
         return string(abi.encodePacked(metadataFolderURI, Utils.toString(tokenId)));
+    }
+
+    function contractURI() public view returns (string memory) {
+        return openseaContractMetadataURL;
     }
 
     function mint() public payable {
