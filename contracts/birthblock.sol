@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.5;
 
-import './utils.sol';
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
+import '@openzeppelin/contracts/utils/Strings.sol';
 
 contract birthblock is ERC721, Ownable {
     using Counters for Counters.Counter;
@@ -13,12 +13,10 @@ contract birthblock is ERC721, Ownable {
     mapping(address => uint256) public minted;
     uint256 public constant price = 0.01 ether;
     uint256 public reverseBirthday;
-    uint256 public mintActive = 0;
+    bool public mintActive;
     uint256 public freeMints;
     uint256 public mintsPerAddress;
     string public openseaContractMetadataURL;
-
-    event Mint(address indexed _minter, uint256 indexed _token_id);
 
     constructor(
         string memory _name,
@@ -26,22 +24,24 @@ contract birthblock is ERC721, Ownable {
         string memory _metadataFolderURI,
         uint256 _freeMints,
         uint256 _mintsPerAddress,
-        string memory _openseaContractMetadataURL
+        string memory _openseaContractMetadataURL,
+        bool _mintActive
     ) ERC721(_name, _symbol) {
         metadataFolderURI = _metadataFolderURI;
         freeMints = _freeMints;
         reverseBirthday = block.number;
         mintsPerAddress = _mintsPerAddress;
         openseaContractMetadataURL = _openseaContractMetadataURL;
+        mintActive = _mintActive;
     }
 
-    function setMetadataFolderURI(string memory folderUrl) public onlyOwner {
+    function setMetadataFolderURI(string calldata folderUrl) public onlyOwner {
         metadataFolderURI = folderUrl;
     }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), 'ERC721URIStorage: URI query for nonexistent token');
-        return string(abi.encodePacked(metadataFolderURI, Utils.toString(tokenId)));
+        return string(abi.encodePacked(metadataFolderURI, Strings.toString(tokenId)));
     }
 
     function contractURI() public view returns (string memory) {
@@ -49,7 +49,7 @@ contract birthblock is ERC721, Ownable {
     }
 
     function mint() public payable {
-        require(mintActive == 1, 'mint is not active rn..');
+        require(mintActive == true, 'mint is not active rn..');
         require(tx.origin == msg.sender, "dont get Seven'd");
         require(minted[msg.sender] < mintsPerAddress, 'only 1 mint per wallet address');
 
@@ -64,14 +64,17 @@ contract birthblock is ERC721, Ownable {
 
         uint256 tokenId = _tokenIds.current();
         _safeMint(msg.sender, tokenId);
-        emit Mint(msg.sender, tokenId);
     }
 
     function isMintFree() external view returns (bool) {
         return (freeMints > _tokenIds.current());
     }
 
-    function setMintActive(uint256 _mintActive) public onlyOwner {
+    function mintedCount() external view returns (uint256) {
+        return _tokenIds.current();
+    }
+
+    function setMintActive(bool _mintActive) public onlyOwner {
         mintActive = _mintActive;
     }
 

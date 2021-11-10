@@ -17,8 +17,11 @@ describe('birthblock contract', () => {
     let ownerStartingBalance: number;
     const metadataFolderURL = contractArgs[2];
     // change 144 free mints to 2
+    assert(contractArgs[3] === 144, 'freeMints should be 144');
+    assert(contractArgs[4] === 1, 'mintsPerAddress should be 1');
+
+    // change 144 free mints to 2 for easier testing
     contractArgs[3] = 2;
-    contractArgs[4] = 1;
 
     // const provider = ethers.getDefaultProvider(undefined, providerConfig[1]);
     describe('happy path', async () => {
@@ -45,9 +48,11 @@ describe('birthblock contract', () => {
             const txn = await nft.connect(bob).mint();
 
             const reciept = await txn.wait();
-            const mintEvent = reciept.events?.filter((e: { event: string }) => e.event == 'Mint');
-            expect(mintEvent[0].args[0]).to.equal(bob.address); // minter
-            expect(Number(formatUnits(mintEvent[0].args[1], 'wei'))).to.equal(2); // token Id
+            const mintEvent = reciept.events?.filter(
+                (e: { event: string }) => e.event == 'Transfer',
+            );
+            expect(mintEvent[0].args[1]).to.equal(bob.address); // minter
+            expect(Number(formatUnits(mintEvent[0].args[2], 'wei'))).to.equal(2); // token Id
         });
         it('paid mints with 0.01 eth after the freeMint limit is hit', async () => {
             await nft.connect(charlie).mint(payment(mintCost));
