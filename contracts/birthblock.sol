@@ -55,7 +55,7 @@ contract birthblock is ERC721, Ownable {
 
         // First 144 are free
         if (freeMints <= _tokenIds.current()) {
-            require(msg.value >= price, 'minting is no longer free, it costs 0.01 eth');
+            require(msg.value == price, 'minting is no longer free, it costs 0.01 eth');
         }
 
         _tokenIds.increment();

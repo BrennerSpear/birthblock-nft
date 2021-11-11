@@ -56,24 +56,22 @@ describe('birthblock contract', () => {
         });
         it('paid mints with 0.01 eth after the freeMint limit is hit', async () => {
             await nft.connect(charlie).mint(payment(mintCost));
+            await nft.connect(danny).mint(payment(mintCost));
         });
         it('isMintFree returns false when its no longer free', async () => {
             assert(!(await nft.isMintFree()), 'mint should no longer be free');
-        });
-        it('you to overpay for a mint', async () => {
-            await nft.connect(danny).mint(payment(3));
         });
         it('tokenURI returns base+tokenId', async () => {
             const tokenURIData = await nft.tokenURI(1);
             expect(tokenURIData).to.equal(metadataFolderURL + '1');
         });
         it('owner can pay another address', async () => {
-            // pay bob 0.5 eth
-            await nft.pay(bob.address, parseEther('0.5').toString());
+            // pay bob 0.008 eth
+            await nft.pay(bob.address, parseEther('0.008').toString());
 
             // bob starts with 10,000 eth
             const bobBalance = bigNtoN(await bob.getBalance());
-            expect(bobBalance).to.be.above(10000.49);
+            expect(bobBalance).to.be.above(10000.007);
         });
         it('owner can change baseURL', async () => {
             await nft.setMetadataFolderURI(newURL);
@@ -85,7 +83,7 @@ describe('birthblock contract', () => {
         });
         it('owner can withdraw to empty contract balance', async () => {
             // contract balance before
-            expect(bigNtoN(await nft.getBalance())).to.be.equal(2.51);
+            expect(bigNtoN(await nft.getBalance())).to.be.equal(0.012);
 
             await nft.connect(owner).withdraw();
             const ownerEndingBalance = bigNtoN(await owner.getBalance());
@@ -122,6 +120,9 @@ describe('birthblock contract', () => {
         });
         it('mint for less than the fee', async () => {
             await shouldThrow(nft.connect(charlie).mint(payment(mintCost - 0.00001)));
+        });
+        it('mint for more than the fee', async () => {
+            await shouldThrow(nft.connect(charlie).mint(payment(mintCost + 0.00001)));
         });
         it('a non-owner from paying', async () => {
             await shouldThrow(nft.connect(charlie).pay(bob.address, parseEther('0.5').toString()));
