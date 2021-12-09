@@ -3,10 +3,10 @@ const contractName = 'birthblock'; //links to the file name in contracts/<filena
 const nftName = 'Birthblock';
 const symbol = 'BBLOCK';
 const metadataFolderURL = 'https://www.dev.birthblock.art/api/v1/metadata/';
-const freeMints = 144;
-const mintsPerAddress = 1;
+const freeMints = 1000;
+const mintsPerAddress = 100;
 const openseaContractMetadataURI = 'https://www.dev.birthblock.art/api/v1/contract-metadata';
-const mintActive = false;
+const mintActive = true;
 
 const contractArgs = [
     nftName,

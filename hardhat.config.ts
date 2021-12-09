@@ -14,6 +14,7 @@ const {
     ROPSTEN_INFURA_URL,
     RINKEBY_INFURA_URL,
     GOERLI_INFURA_URL,
+    MAINNET_INFURA_URL,
     PRIVATE_KEY,
     ETHERSCAN_API_KEY,
     COINMARKETCAP_API_KEY,
@@ -50,6 +51,12 @@ export default {
             url: GOERLI_INFURA_URL,
             accounts: [`0x${PRIVATE_KEY}`],
         },
+        mainnet: {
+            url: MAINNET_INFURA_URL,
+            accounts: [`0x${PRIVATE_KEY}`],
+            // gasPrice: 'auto',
+            // gasMultiplier: 1.05,
+        },
     },
     //   contractSizer: {
     //     alphasort: true,
@@ -58,7 +65,7 @@ export default {
     //  },
     gasReporter: {
         currency: 'USD',
-        gasPrice: 100,
+        gasPrice: 200,
         coinmarketcap: COINMARKETCAP_API_KEY,
     },
     etherscan: {

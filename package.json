@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "test": "npx hardhat test",
-        "deploy": "HARDHAT_NETWORK=rinkeby ts-node scripts/deploy.ts"
+        "deploy": "HARDHAT_NETWORK=rinkeby ts-node scripts/deploy.ts",
+        "prod-deploy": "HARDHAT_NETWORK=mainnet ts-node scripts/deploy.ts",
+        "prod-verify": "HARDHAT_NETWORK=mainnet ts-node scripts/verify.ts"
     },
     "author": "Brenner Spear",
     "license": "MT",

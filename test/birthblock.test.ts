@@ -17,8 +17,8 @@ describe('birthblock contract', () => {
     let ownerStartingBalance: number;
     const metadataFolderURL = contractArgs[2];
     // change 144 free mints to 2
-    assert(contractArgs[3] === 144, 'freeMints should be 144');
-    assert(contractArgs[4] === 1, 'mintsPerAddress should be 1');
+    // assert(contractArgs[3] === 144, 'freeMints should be 144');
+    // assert(contractArgs[4] === 1, 'mintsPerAddress should be 1');
 
     // change 144 free mints to 2 for easier testing
     contractArgs[3] = 2;
@@ -67,6 +67,7 @@ describe('birthblock contract', () => {
         });
         it('owner can pay another address', async () => {
             // pay bob 0.008 eth
+            console.log(parseEther('0.1').toString());
             await nft.pay(bob.address, parseEther('0.008').toString());
 
             // bob starts with 10,000 eth
